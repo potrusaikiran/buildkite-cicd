@@ -1,4 +1,4 @@
 Write-output "=============================="
 Write-output "Hello buildkite from powershell"
-Write-output "Thank You"
-Connect-AzAccount
+Get-AzContext
+Write-output "======Thank You====="
