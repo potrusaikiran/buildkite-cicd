@@ -1,4 +1,21 @@
+$rg='buildkite-rg'
+$location='Central India'
+Import-Module -Name Az -Force
+$AzModule = (Get-Module Az -ErrorAction SilentlyContinue).Version
+if (!(($AzModule.Major -ge 5 -and $AzModule.Minor -ge 0 -and $AzModule.Build -ge 0))) {
+    throw "Please install Azure PowerShell version 5.0.0"
+}
 Write-output "=============================="
 Write-output "Hello buildkite from powershell"
 Get-AzContext
-Write-output "======Thank You====="
+$buildkiterge=Get-AzResourceGroup -Name $rg -ErrorAction SilentlyContinue
+if(!$buildkiterge)
+{
+  New-AzResourceGroup -Name $rg -Location $location -verbose
+  write-output "Resource Group ($rg) created....."
+}
+else
+{
+  write-output "Resource Group ($rg) exists....."
+}
+Write-output "====== Thank You just to check no offense nor credential ====="
