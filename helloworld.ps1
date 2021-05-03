@@ -7,6 +7,7 @@ if (!(($AzModule.Major -ge 5 -and $AzModule.Minor -ge 0 -and $AzModule.Build -ge
 }
 Write-output "=============================="
 Write-output "Hello buildkite from powershell"
+Connect-AzAccount
 Get-AzContext
 $buildkiterge=Get-AzResourceGroup -Name $rg -ErrorAction SilentlyContinue
 if(!$buildkiterge)
