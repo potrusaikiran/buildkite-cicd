@@ -1,0 +1,13 @@
+env:
+  SERVER: "server-a"
+steps:
+  - label: "Everyone struggles sometimes don't worry"
+    commands: 
+       #- powershell .\helloworld.ps1
+        - powershell write-output "$SERVER"
+       #- powershell Get-Location
+       #- powershell write-output "Tell me version of azurerm module"
+       #- powershell (Get-Module -Name Azurerm -ListAvailable).Version
+    branches: "main"
+    artifact_paths:
+      - "*/*"
