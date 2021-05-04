@@ -1,5 +1,10 @@
-$rg = 'buildkite-rg'
-$location = 'Central India'
+param (
+    [Parameter(Mandatory = $true)][string]$rg,
+    [Parameter(Mandatory = $true)][string]$location
+)
+
+#$rg = 'buildkite-rg'
+#$location = 'Central India'
 Import-Module -Name Az -Force
 $AzModule = (Get-Module Az -ErrorAction SilentlyContinue).Version
 if (!(($AzModule.Major -ge 5 -and $AzModule.Minor -ge 0 -and $AzModule.Build -ge 0))) {
