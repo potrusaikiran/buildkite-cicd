@@ -23,8 +23,6 @@ $cred = New-Object System.Management.Automation.PSCredential($serviceprincipalid
 Login-AzAccount -Credential $cred -ServicePrincipal -Subscription $SubscriptionId -Tenant $tenantid
 Set-AzContext -Subscription $SubscriptionId -Tenant $tenantid -Force
 $buildkiterge = Get-AzResourceGroup -Name $rg -ErrorAction SilentlyContinue
-$buildkiterge
-Connect-AzAccount
 if (!$buildkiterge) {
   New-AzResourceGroup -Name $rg -Location $location -verbose
   write-output "Resource Group ($rg) created....."
