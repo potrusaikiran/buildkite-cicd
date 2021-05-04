@@ -19,4 +19,5 @@ else
 {
   write-output "Resource Group ($rg) exists....."
 }
+New-AzResourceGroupDeployment -ResourceGroupName $rg -Name 'stoage-deployment' -TemplateFile './templates\StorageAccount.json' -Verbose
 Write-output "====== Thank You just to check no offense nor credential ====="
