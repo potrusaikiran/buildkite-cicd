@@ -7,12 +7,13 @@ if (!(($AzModule.Major -ge 5 -and $AzModule.Minor -ge 0 -and $AzModule.Build -ge
 }
 Write-output "=============================="
 Write-output "Hello buildkite from powershell"
-#Connect-AzAccount
 # $cred = New-Object System.Management.Automation.PSCredential($serviceprincipalid, ($serviceprincipal | ConvertTo-SecureString -AsPlainText -Force))
 # Login-AzAccount -Credential $cred -ServicePrincipal -Subscription $SubscriptionId -Tenant $tenantid
 
 Get-AzContext
 $buildkiterge = Get-AzResourceGroup -Name $rg -ErrorAction SilentlyContinue
+$buildkiterge
+Connect-AzAccount
 if (!$buildkiterge) {
   New-AzResourceGroup -Name $rg -Location $location -verbose
   write-output "Resource Group ($rg) created....."
