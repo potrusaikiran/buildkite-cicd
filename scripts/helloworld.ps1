@@ -4,7 +4,7 @@ param (
   [Parameter(Mandatory = $true)][string]$SubscriptionId,
   [Parameter(Mandatory = $true)][string]$tenantid,
   [Parameter(Mandatory = $true)][string]$serviceprincipalid,
-  [Parameter(Mandatory = $true)][securestring]$serviceprincipalsecret
+  [Parameter(Mandatory = $true)][string]$serviceprincipalsecret
 )
 
 #$rg = 'buildkite-rg'
