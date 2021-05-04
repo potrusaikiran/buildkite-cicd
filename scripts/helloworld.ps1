@@ -17,10 +17,11 @@ if (!(($AzModule.Major -ge 5 -and $AzModule.Minor -ge 0 -and $AzModule.Build -ge
 }
 Write-output "=============================="
 Write-output "Hello buildkite from powershell"
+Clear-AzContext -Force
+
 $cred = New-Object System.Management.Automation.PSCredential($serviceprincipalid, ($serviceprincipalsecret | ConvertTo-SecureString -AsPlainText -Force))
 Login-AzAccount -Credential $cred -ServicePrincipal -Subscription $SubscriptionId -Tenant $tenantid
-
-Get-AzContext
+Set-AzContext -Subscription $SubscriptionId -Tenant $tenantid -Force
 $buildkiterge = Get-AzResourceGroup -Name $rg -ErrorAction SilentlyContinue
 $buildkiterge
 Connect-AzAccount
