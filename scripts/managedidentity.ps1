@@ -21,8 +21,7 @@ Write-output "=============================="
 Write-output "Hello buildkite from powershell"
 Clear-AzContext -Force
 
-#$cred = New-Object System.Management.Automation.PSCredential($serviceprincipalid, ($serviceprincipal | ConvertTo-SecureString -AsPlainText -Force))
-#Connect-AzAccount -Credential $cred -ServicePrincipal -Subscription $SubscriptionId -Tenant $tenantid
+Connect-AzAccount -Identity
 Select-AzSubscription -Subscription $SubscriptionId
 $buildkiterge = Get-AzResourceGroup -Name $rg -ErrorAction SilentlyContinue
 if (!$buildkiterge) {
