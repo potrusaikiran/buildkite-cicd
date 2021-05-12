@@ -1,14 +1,7 @@
 Param(
-	[Parameter(Mandatory = $false)]
-	[string] $serviceprincipal,
-	[Parameter(Mandatory = $false)]
-	[string] $serviceprincipalid,
-	[Parameter(Mandatory = $false)]
 	[string] $SubscriptionId,
-	[Parameter(Mandatory = $false)]
-	[string] $tenantid,
-  [Parameter(Mandatory = $true)][string]$rg,
-  [Parameter(Mandatory = $true)][string]$location
+  	[Parameter(Mandatory = $true)][string]$rg,
+  	[Parameter(Mandatory = $true)][string]$location
 )
 
 
